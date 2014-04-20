@@ -240,7 +240,7 @@ PVR_ERROR CHTSPDemuxer::CurrentSignal ( PVR_SIGNAL_STATUS &sig )
 
 void CHTSPDemuxer::SendSubscribe ( bool force )
 {
-  int err;
+  const char *error;
   htsmsg_t *m;
 
   /* Reset status */
@@ -268,11 +268,11 @@ void CHTSPDemuxer::SendSubscribe ( bool force )
   }
 
   /* Error */
-  err = htsmsg_get_u32_or_default(m, "error", 0);
+  error = htsmsg_get_str(m, "error");
   htsmsg_destroy(m);
-  if (err)
+  if (error)
   {
-    tvhdebug("demux failed to subscribe");
+    tvhdebug("demux failed to subscribe: %s", error);
     return;
   }
 
@@ -282,7 +282,7 @@ void CHTSPDemuxer::SendSubscribe ( bool force )
 
 void CHTSPDemuxer::SendUnsubscribe ( void )
 {
-  int err;
+  const char *error;
   htsmsg_t *m;
 
   /* Build message */
@@ -301,11 +301,11 @@ void CHTSPDemuxer::SendUnsubscribe ( void )
   }
 
   /* Error */
-  err = htsmsg_get_u32_or_default(m, "error", 0);
+  error = htsmsg_get_str(m, "error");
   htsmsg_destroy(m);
-  if (err)
+  if (error)
   {
-    tvhdebug("demux failed to unsubcribe");
+    tvhdebug("demux failed to unsubcribe: %s", error);
     return;
   }
 
