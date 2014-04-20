@@ -206,10 +206,8 @@ public:
 private:
   PLATFORM::CMutex                        m_mutex;
   CHTSPConnection                        &m_conn;
-  bool                                    m_opened;
-  uint32_t                                m_chnId;
-  uint32_t                                m_subId;
-  int                                     m_speed;
+  bool                                    m_started;
+  PLATFORM::CCondition<volatile bool>     m_startCond;
   PLATFORM::SyncedBuffer<DemuxPacket*>    m_pktBuffer;
   ADDON::XbmcStreamProperties             m_streams;
   std::map<int,int>                       m_streamStat;
@@ -218,6 +216,7 @@ private:
   SSourceInfo                             m_sourceInfo;
   SQuality                                m_signalInfo;
   STimeshiftStatus                        m_timeshiftStatus;
+  SSubscription                           m_subscription;
   
   void         Close0         ( void );
   void         Abort0         ( void );
