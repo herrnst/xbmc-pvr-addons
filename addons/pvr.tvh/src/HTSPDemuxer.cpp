@@ -277,7 +277,7 @@ void CHTSPDemuxer::SendSubscribe ( bool force )
   }
 
   m_subscription.active = true;
-  tvhdebug("demux succesfully subscribed to %d", m_subscription.channelId);
+  tvhdebug("demux successfully subscribed to %d", m_subscription.channelId);
 }
 
 void CHTSPDemuxer::SendUnsubscribe ( void )
@@ -309,7 +309,7 @@ void CHTSPDemuxer::SendUnsubscribe ( void )
     return;
   }
 
-  tvhdebug("demux succesfully unsubscribed %d", m_subscription.channelId);
+  tvhdebug("demux successfully unsubscribed %d", m_subscription.channelId);
 }
 
 void CHTSPDemuxer::SendSpeed ( bool force )
