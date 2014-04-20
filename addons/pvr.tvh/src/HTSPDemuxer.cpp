@@ -286,7 +286,7 @@ void CHTSPDemuxer::SendUnsubscribe ( void )
   htsmsg_add_u32(m, "subscriptionId", m_subId);
 
   /* Send and Wait */
-  tvhdebug("demux unsubcribe from %d", m_subId);
+  tvhdebug("demux unsubcribe from %d", m_chnId);
   if ((m = m_conn.SendAndWait("unsubscribe", m)) == NULL)
   {
     tvhdebug("demux failed to send unsubcribe");
@@ -302,7 +302,7 @@ void CHTSPDemuxer::SendUnsubscribe ( void )
     return;
   }
 
-  tvhdebug("demux succesfully unsubscribed %d", m_subId);
+  tvhdebug("demux succesfully unsubscribed %d", m_chnId);
 }
 
 void CHTSPDemuxer::SendSpeed ( bool force )
