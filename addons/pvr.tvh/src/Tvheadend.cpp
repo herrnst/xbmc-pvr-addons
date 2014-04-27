@@ -592,7 +592,6 @@ PVR_ERROR CTvheadend::GetEpg
 {
   SSchedules::const_iterator sit;
   SEvents::const_iterator eit;
-  htsmsg_t *l;
   htsmsg_field_t *f;
   int n = 0;
 
@@ -638,6 +637,8 @@ PVR_ERROR CTvheadend::GetEpg
     }
 
     /* Process */
+    htsmsg_t *l;
+    
     if (!(l = htsmsg_get_list(msg, "events")))
     {
       htsmsg_destroy(msg);
