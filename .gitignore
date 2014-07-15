@@ -70,3 +70,6 @@ addons/*/project/VS2010Express/ipch
 addons/*/addon/*.so
 addons/*/addon/*.dll
 addons/*/addon/addon.xml
+
+# Netbeans project files
+nbproject/
