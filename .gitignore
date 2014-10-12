@@ -40,6 +40,7 @@ compile
 *.lastbuildstate
 
 # Windows specific generated files
+*.0ll
 *.exp
 *.lib
 *.pdb
